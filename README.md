@@ -46,11 +46,10 @@ This command will open a browser window for you to log in and grant the necessar
 
 ## Running the Server
 
-The best way to run the server during development is with the `fastmcp run` command. It starts your server and then run `fastmcp dev` which launches the **MCP Inspector**, a web UI for interactively testing your tools.
+The best way to run the server during development is with the `fastmcp run` command. It starts your server and launches the **MCP Inspector**, a web UI for interactively testing your tools.
 
 ```bash
-fastmcp run main.py --transport="http" --port="8080"
-fastmcp dev main.py --ui-port="9080" --server-port="5080"
+fastmcp run main.py --transport="http" --port="8080" --ui-port="9080"
 ```
 
 You should see output confirming that the server is running and listing the available tools:
@@ -74,21 +73,22 @@ The `uv run` command ensures that `mcp-inspector` is executed within your projec
 
 Below is a complete list of the available tools and their parameters.
 
-| Tool                  | Description                         | Parameters                                                                                                |
-| :-------------------- | :---------------------------------- | :-------------------------------------------------------------------------------------------------------- |
-| `greet`               | Returns a friendly greeting.        | `name: str`                                                                                               |
-| `list_gcs_buckets`    | Lists all GCS buckets.              | (None)                                                                                                    |
-| `create_bucket`       | Creates a new GCS bucket.           | `bucket_name: str`, `location: str = "US"`                                                                |
-| `delete_bucket`       | Deletes a GCS bucket.               | `bucket_name: str`                                                                                        |
-| `list_objects`        | Lists all objects in a bucket.      | `bucket_name: str`                                                                                        |
-| `upload_blob`         | Uploads a file to a bucket.         | `bucket_name: str`, `source_file_name: str`, `destination_blob_name: str`                                 |
-| `download_blob`       | Downloads a blob from a bucket.     | `bucket_name: str`, `blob_name: str`, `destination_file_name: str`                                        |
-| `delete_blob`         | Deletes a blob from a bucket.       | `bucket_name: str`, `blob_name: str`                                                                      |
-| `get_bucket_metadata` | Retrieves metadata for a bucket.    | `bucket_name: str`                                                                                        |
-| `get_blob_metadata`   | Retrieves metadata for an object.   | `bucket_name: str`, `blob_name: str`                                                                      |
-| `generate_signed_url` | Generates a temporary signed URL.   | `bucket_name: str`, `blob_name: str`, `expiration_minutes: int = 15`                                      |
-| `rename_blob`         | Renames/moves an object.            | `bucket_name: str`, `blob_name: str`, `new_name: str`                                                     |
-| `copy_blob`           | Copies an object to another bucket. | `source_bucket_name: str`, `blob_name: str`, `destination_bucket_name: str`, `destination_blob_name: str` |
+| Tool                  | Description                               | Parameters                                                                                                |
+| :-------------------- | :---------------------------------------- | :-------------------------------------------------------------------------------------------------------- |
+| `greet`               | Returns a friendly greeting.              | `name: str`                                                                                               |
+| `list_gcs_buckets`    | Lists all GCS buckets.                    | (None)                                                                                                    |
+| `create_bucket`       | Creates a new GCS bucket.                 | `bucket_name: str`, `location: str = "US"`                                                                |
+| `delete_bucket`       | Deletes a GCS bucket.                     | `bucket_name: str`                                                                                        |
+| `list_objects`        | Lists all objects in a bucket.            | `bucket_name: str`                                                                                        |
+| `upload_blob`         | Uploads a file to a bucket.               | `bucket_name: str`, `source_file_name: str`, `destination_blob_name: str`                                 |
+| `download_blob`       | Downloads a blob from a bucket.           | `bucket_name: str`, `blob_name: str`, `destination_file_name: str`                                        |
+| `delete_blob`         | Deletes a blob from a bucket.             | `bucket_name: str`, `blob_name: str`                                                                      |
+| `get_bucket_metadata` | Retrieves metadata for a bucket.          | `bucket_name: str`                                                                                        |
+| `get_blob_metadata`   | Retrieves metadata for an object.         | `bucket_name: str`, `blob_name: str`                                                                      |
+| `generate_signed_url` | Generates a temporary signed URL.         | `bucket_name: str`, `blob_name: str`, `expiration_minutes: int = 15`                                      |
+| `rename_blob`         | Renames/moves an object.                  | `bucket_name: str`, `blob_name: str`, `new_name: str`                                                     |
+| `copy_blob`           | Copies an object to another bucket.       | `source_bucket_name: str`, `blob_name: str`, `destination_bucket_name: str`, `destination_blob_name: str` |
+| `set_bucket_cors`     | Sets the CORS configuration for a bucket. | `bucket_name: str`, `cors_rules: list[dict]`                                                              |
 
 **Example:**
 
