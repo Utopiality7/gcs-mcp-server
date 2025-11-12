@@ -49,7 +49,9 @@ This command will open a browser window for you to log in and grant the necessar
 The best way to run the server during development is with the `fastmcp run` command. It starts your server and launches the **MCP Inspector**, a web UI for interactively testing your tools.
 
 ```bash
-fastmcp run main.py --transport="http" --port="8080" --ui-port="9080"
+
+fastmcp run main.py --transport="http" --port="8080"
+fastmcp dev main.py --ui-port="9080" --server-port="5080"
 ```
 
 You should see output confirming that the server is running and listing the available tools:
